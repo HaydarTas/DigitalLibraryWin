@@ -11,6 +11,7 @@ namespace DigitalLibraryWin.Controllers
         public ActionResult Index()
         {
             return View();
+			// Test
         }
 
         public ActionResult About()

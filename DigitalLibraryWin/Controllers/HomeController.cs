@@ -26,5 +26,12 @@ namespace DigitalLibraryWin.Controllers
 
             return View();
         }
+
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View(User);
+        }
     }
 }

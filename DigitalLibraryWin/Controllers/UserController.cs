@@ -1,6 +1,7 @@
 ﻿using DigitalLibraryWin.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,16 +10,33 @@ namespace DigitalLibraryWin.Controllers
 {
     public class UserController : Controller
     {
-        // POST: User
-        //[HttpPost]
-        public ActionResult CreateUser()
+        // Get 
+        public ActionResult Create()
         {
-            User User = new User() { username = "Haydar", password = "*****" };
+            var User = new User();
+          
+            User.Group = new List<UserGroup>();
+
+            User.Group.Add(new UserGroup() { Name = "Fodbold", isInVolved = false });
+            User.Group.Add(new UserGroup() { Name = "Basketball", isInVolved = false });
+            User.Group.Add(new UserGroup() { Name = "Styrketræning", isInVolved = false });
+            User.Group.Add(new UserGroup() { Name = "Playstation", isInVolved = false });
             return View(User);
                
         }
 
-        public ActionResult UserEdit()
+        [HttpPost]
+        public ActionResult Create(User model)
+        {
+            Debug.WriteLine("Name: " + model.Username);
+            foreach (var grp in model.Group)
+            {
+                Debug.WriteLine(grp.Name + " : " + grp.isInVolved.ToString());
+            }
+            return RedirectToAction("../Home/Index");
+        }
+
+        public ActionResult Edit()
         {
             var User = new User() {};
 
@@ -26,7 +44,7 @@ namespace DigitalLibraryWin.Controllers
 
         }
 
-        public ActionResult UserDelete()
+        public ActionResult Delete()
         {
             var User = new User() {};
             

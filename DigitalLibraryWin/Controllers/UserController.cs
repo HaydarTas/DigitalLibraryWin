@@ -28,13 +28,20 @@ namespace DigitalLibraryWin.Controllers
         [HttpPost]
         public ActionResult Create(User model)
         {
-            Debug.WriteLine("Name: " + model.Username);
+            Debug.WriteLine("Name: " + model.Username + " Email " + model.Email + " DatoForOprettelse " + model.Date);
             foreach (var grp in model.Group)
             {
                 Debug.WriteLine(grp.Name + " : " + grp.isInVolved.ToString());
             }
+            model.Date = DateTime.Today;
             return RedirectToAction("../Home/Index");
         }
+
+
+
+
+
+
 
         public ActionResult Edit()
         {

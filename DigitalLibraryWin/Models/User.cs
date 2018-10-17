@@ -10,19 +10,24 @@ namespace DigitalLibraryWin.Models
     public class User
     {
        
-        //public int userId { get; set; }
+        public int userId { get; set; }
 
         [Required]
         [Display(Name = "Email")]
         public String Email { get; set; }
 
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Brugernavn")]
         public String Username { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
+        [Display(Name = "Kode")]
         public String Password { get; set; }
+
+        [Required(ErrorMessage = "Confirmation Password is required")]
+        [Display(Name = "Bekræft Kode")]
+        [Compare("Password", ErrorMessage = "Password and Confirmation Password must match")]
+        public string ConfirmPassword { get; set; }
 
         [Required]
         [Display(Name = "Group")]
@@ -30,7 +35,7 @@ namespace DigitalLibraryWin.Models
 
         
         //public String type { get; set; }
-        //public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
     }
 

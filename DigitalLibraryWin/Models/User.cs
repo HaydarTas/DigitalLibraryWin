@@ -9,8 +9,9 @@ namespace DigitalLibraryWin.Models
 {
     public class User
     {
-       
-        public int userId { get; set; }
+        [Required]
+        [Display(Name = "Id")]
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Email")]
@@ -29,9 +30,9 @@ namespace DigitalLibraryWin.Models
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Display(Name = "Group")]
-        public List <UserGroup>Group { get; set; }
+        //[Required]
+        //[Display(Name = "Group")]
+        //public List <UserGroup>Group { get; set; }
 
         
         //public String type { get; set; }

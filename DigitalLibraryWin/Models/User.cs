@@ -36,7 +36,7 @@ namespace DigitalLibraryWin.Models
 
         
         //public String type { get; set; }
-        public DateTime Date { get; set; }
+        //public DateTime Create_date { get; set; }
 
     }
 

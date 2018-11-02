@@ -9,12 +9,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="45" />
           <Property Name="Password" Type="varchar" MaxLength="45" />
           <Property Name="ConfirmPassword" Type="varchar" MaxLength="45" />
-          <Property Name="Date" Type="varchar" MaxLength="45" />
+          <Property Name="Create_date" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Edit_date" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityContainer Name="dbModelStoreContainer">
           <EntitySet Name="user_table" EntityType="Self.user_table" Schema="sakila" store:Type="Tables" />
@@ -30,12 +31,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ConfirmPassword" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Create_date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Edit_date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -46,7 +48,8 @@
           <EntitySetMapping Name="user_table">
             <EntityTypeMapping TypeName="dbModel.user_table">
               <MappingFragment StoreEntitySet="user_table">
-                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Edit_date" ColumnName="Edit_date" />
+                <ScalarProperty Name="Create_date" ColumnName="Create_date" />
                 <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

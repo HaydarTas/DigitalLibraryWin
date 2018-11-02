@@ -19,6 +19,7 @@ namespace DigitalLibraryWin.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-        public string Date { get; set; }
+        public System.DateTime Create_date { get; set; }
+        public System.DateTime Edit_date { get; set; }
     }
 }
